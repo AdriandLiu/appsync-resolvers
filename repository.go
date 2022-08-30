@@ -22,6 +22,8 @@ func (r Repository) Add(resolve string, handler interface{}) error {
 // Handle responds to the AppSync request
 func (r Repository) Handle(in invocation) (interface{}, error) {
 	fmt.Println(in)
+	fmt.Println(in.Resolve)
+	fmt.Println(in.Context)
 	handler, found := r[in.Resolve]
 
 	if found {
