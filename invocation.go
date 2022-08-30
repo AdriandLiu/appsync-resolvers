@@ -1,6 +1,9 @@
 package resolvers
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 type context struct {
 	Arguments json.RawMessage `json:"arguments"`
@@ -18,6 +21,7 @@ func (in invocation) isRoot() bool {
 
 func (in invocation) payload() json.RawMessage {
 	if in.isRoot() {
+		fmt.Println("!!!!")
 		return in.Context.Arguments
 	}
 

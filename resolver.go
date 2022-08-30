@@ -2,6 +2,7 @@ package resolvers
 
 import (
 	"encoding/json"
+	"fmt"
 	"reflect"
 )
 
@@ -20,7 +21,8 @@ func (r *resolver) call(p json.RawMessage) (interface{}, error) {
 	if r.hasArguments() {
 		pld := payload{p}
 		args, err = pld.parse(reflect.TypeOf(r.function).In(0))
-
+		fmt.Println(pld)
+		fmt.Println(args)
 		if err != nil {
 			return nil, err
 		}
