@@ -24,6 +24,7 @@ func (r Repository) Handle(in invocation) (interface{}, error) {
 	fmt.Println(in)
 	fmt.Println(in.Resolve)
 	fmt.Println(in.Context)
+	fmt.Println(in.payload())
 	handler, found := r[in.Resolve]
 
 	if found {
